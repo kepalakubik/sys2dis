@@ -1,0 +1,20 @@
+[Unit]
+Description=Show off your system resources on Discord like people would care
+Documentation=https://github.com/kepalakubik/sys2dis
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/sys2dis
+
+Restart=on-failure
+RestartSec=10s
+
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
